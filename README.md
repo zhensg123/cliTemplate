@@ -2,11 +2,11 @@
 
 ## 使用
 
-kgt-cli 的项目模板。
+auto-cli 的项目模板。
 
 ```
-$ npm install -g kgt-cli
-$ kgt init kg-vue-boilerplate my-project
+$ npm install -g auto-cli
+$ auto create cli3 my-project
 $ cd my-project
 $ npm install
 $ npm start

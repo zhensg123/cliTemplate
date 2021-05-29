@@ -1,0 +1,61 @@
+$color: #3A5FFF;
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #dddee1;
+    border-radius: 5px;
+}
+
+/* 清除浮动 */
+.clearfix:before, .clearfix:after{display:table; content:"";}
+.clearfix:after{clear:both;}
+/* 浮动 */
+.fl{float: left;}
+.fr{float: right;}
+.form-item-tip{
+  i {
+    color:#409EFF;
+    margin-right: 3px;
+  }
+  color:#C0C4CC;
+  font-size: 12px;
+  line-height: 17px;
+  padding-top: 10px;
+}
+.el-button--primary {
+  background-color: $color;
+  border-color: $color;
+}
+.el-button:hover{
+  background: rgba(58,95,255,.1);
+  color: $color;
+}
+// 面包屑容器
+.bread-box{padding: 17px 24px;background: #fff;}
+.outer-wrap{margin: 10px 20px 40px;}
+
+// 弹窗
+.text-over-gateway {
+  max-width: 100%;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.a-text-gateway {
+  color: #006eff !important;
+  cursor: pointer;
+}
+.cloud-select-popper .el-select-dropdown__wrap.el-scrollbar__wrap {
+  /* max-width: 500px; */
+  max-width: 100%;
+}
+
+.box-card-query-form .el-card__body{
+  padding-top: 0;
+}

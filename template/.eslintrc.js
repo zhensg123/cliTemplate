@@ -1,14 +1,17 @@
 module.exports = {
+  root: true,
   env: {
-    browser: true,
-    node: true,
-    es6: true
+    node: true
   },
-  extends: ['./eslint-config-kuaigou.js', 'plugin:vue/essential'],
+  extends: [
+    'plugin:vue/essential',
+    '@vue/standard'
+  ],
   parserOptions: {
-    parser: 'babel-eslint',
-    sourceType: 'module'
+    parser: 'babel-eslint'
   },
-  plugins: ['vue'],
-  rules: {}
-};
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+  }
+}

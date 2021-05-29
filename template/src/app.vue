@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-     {{#router}}
     <router-view/>
-    {{else}}
-    <Hello/>
-    {{/router}}
   </div>
 </template>
 
 <script>
-{{#unless router}}
-import Hello from "./pages/Hello"
-{{/unless}}
 export default {
-  name: "App",
-  {{#router}}{{else}}
-  components: {
-    Hello
-  }{{/router}}
-};
+  name: 'App'
+}
 </script>
-<style lang="scss">
+
+<style>
+body, html{background: #f8f9fa;}
 #app {
-  text-align: center;
+  height: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 56px;
 }
 </style>
