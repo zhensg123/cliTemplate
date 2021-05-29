@@ -19,7 +19,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://asf-admin.yz.test.autohome.com.cn'
+        target: ''
       }
     }
   },

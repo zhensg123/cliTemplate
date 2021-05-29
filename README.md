@@ -2,11 +2,11 @@
 
 ## 使用
 
-auto-cli 的项目模板。
+zhen-cli 的项目模板。
 
 ```
-$ npm install -g auto-cli
-$ auto create cli3 my-project
+$ npm install -g zhen-cli
+$ zhen vue my-project
 $ cd my-project
 $ npm install
 $ npm start
