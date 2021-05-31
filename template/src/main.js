@@ -9,9 +9,7 @@ import store from './store'
 import util from './util/index'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import cloudUi from '@bdpweb/auto-ui'
-import '@bdpweb/auto-ui/lib/index.css'
-import './assets/common.scss'
+
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
