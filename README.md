@@ -9,5 +9,5 @@ $ npm install -g zhen-cli
 $ zhen vue my-project
 $ cd my-project
 $ npm install
-$ npm run start
+$ npm run serve
 ```
