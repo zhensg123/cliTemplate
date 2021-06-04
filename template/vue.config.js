@@ -1,11 +1,9 @@
-const fs = require('fs')
 const path = require('path')
-const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin') // 给 index.html 注入 dll 生成的链接库
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const { DllReferencePlugin } = require('webpack')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+
 const useAnalyzer = process.env.use_analyzer
 const {
-  DLL_DIR,
   IS_PRODUCTION,
   IS_TEST,
   USE_CDN
@@ -30,28 +28,8 @@ const externals = {
   'js-cookie': 'Cookies'
 }
 const plugins = []
-// 通过 readdirSync 分析 .dll 目录读取文件名
-// 动态注册 AddAssetHtmlWebpackPlugin 和 webpack.DllReferencePlugin
-if (IS_PRODUCTION && fs.existsSync(DLL_DIR)) {
-  fs.readdirSync(DLL_DIR).forEach(file => {
-    if (/.*\.dll\.js$/.test(file)) {
-      plugins.push(
-        new AddAssetHtmlWebpackPlugin({
-          filepath: path.resolve(__dirname, DLL_DIR, file),
-          outputPath: 'js', // 输出路径，相对于默认的输出路径（dist）
-          publicPath: 'js' // 引入文件路径
-        })
-      )
-    }
-    if (/.*\.manifest.json/.test(file)) {
-      plugins.push(
-        new DllReferencePlugin({
-          manifest: path.resolve(__dirname, DLL_DIR, file)
-        })
-      )
-    }
-  })
-}
+plugins.push(new HardSourceWebpackPlugin())
+
 module.exports = {
   lintOnSave: false,
   chainWebpack: config => {
