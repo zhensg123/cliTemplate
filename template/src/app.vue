@@ -29,43 +29,23 @@
         :collapse="isCollapse"
         active-text-color="#1e80ff"
       >
-        <el-submenu
-          :index="String(index)"
-          :key="String(index)"
-          v-for="(item, index) in menuList"
-        >
+        <el-submenu index='1'>
           <template slot="title">
-            <!-- <svg class="icon" aria-hidden="true">
-              <use :xlink:href="'#' + item.icon"></use>
-            </svg> -->
-            <i :class="[item.icon, 'iconfont']"></i>
-            <span>{{ item.menu }}</span>
+            <i :class="['icon-wodegongzuo', 'iconfont']"></i>
+            <span>我的工作</span>
           </template>
-          <template v-for="(subMenu, subIndex) in item.children">
-            <el-menu-item
-              class="sub-item"
-              v-if="subMenu.path"
-              :key="index + '' + subIndex"
-              :index="subMenu.path"
-            >
-              <span>{{ subMenu.menu }}</span>
-            </el-menu-item>
-            <el-submenu
-              class="sub-submenu"
-              :index="index + '' + subIndex"
-              v-else
-              :key="index + '' + subIndex"
-            >
-              <template slot="title">{{ subMenu.menu }}</template>
-              <el-menu-item
-                :key="index + '' + subIndex + '' + sIndex"
-                v-for="(sMenu, sIndex) in subMenu.children"
-                :index="sMenu.path"
-              >
-                <span>{{ sMenu.menu }}</span>
-              </el-menu-item>
-            </el-submenu>
-          </template>
+           <el-menu-item index="/mywork/todolist">
+                拉人入伙
+           </el-menu-item>
+            <el-menu-item index="/mywork/demand-panel">
+                制定目标
+           </el-menu-item>
+            <el-menu-item index="/mywork/attention-serve">
+                执行下去
+           </el-menu-item>
+            <el-menu-item index="/mywork/private-data">
+                监督执行
+           </el-menu-item>
         </el-submenu>
       </el-menu>
     </div>
