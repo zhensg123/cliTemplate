@@ -6,7 +6,8 @@ import plugin from './plugin'
 import '@/assets/styles/reset.css'
 import '@/element'
 import '@/components'
-
+import '@/assets/icon/iconfont.css'
+import '@/assets/icon/iconfont.js'
 import * as filters from './filters' // global filters
 import * as directives from './directives' // global directives
 // import '@/components' // 导入全局组件
