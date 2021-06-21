@@ -5,6 +5,7 @@ import store from './store'
 import plugin from './plugin'
 import '@/assets/styles/reset.css'
 import '@/element'
+import '@/components'
 
 import * as filters from './filters' // global filters
 import * as directives from './directives' // global directives
