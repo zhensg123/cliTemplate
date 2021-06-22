@@ -29,23 +29,23 @@
         :collapse="isCollapse"
         active-text-color="#1e80ff"
       >
-        <el-submenu index='1'>
+        <el-submenu
+          :index="String(index)"
+          :key="String(index)"
+          v-for="(item, index) in menuList"
+        >
           <template slot="title">
-            <i :class="['icon-wodegongzuo', 'iconfont']"></i>
-            <span>我的工作</span>
+            <i :class="[item.icon, 'iconfont']"></i><span>{{ item.menu }}</span>
           </template>
-           <el-menu-item index="/mywork/todolist">
-                拉人入伙
-           </el-menu-item>
-            <el-menu-item index="/mywork/demand-panel">
-                制定目标
-           </el-menu-item>
-            <el-menu-item index="/mywork/attention-serve">
-                执行下去
-           </el-menu-item>
-            <el-menu-item index="/mywork/private-data">
-                监督执行
-           </el-menu-item>
+          <template v-for="(subMenu, subIndex) in item.children">
+            <el-menu-item
+               class="sub-item"
+              :key="index + '' + subIndex"
+              :index="subMenu.path"
+            >
+              <span>{{ subMenu.title }}</span>
+            </el-menu-item>
+          </template>
         </el-submenu>
       </el-menu>
     </div>
