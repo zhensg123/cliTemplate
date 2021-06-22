@@ -9,13 +9,13 @@ files
   .forEach(key => {
     configRoutes = configRoutes
       .concat(files(key).default)
-      .sort((a, b) => (a.sort ? a.sort - b.sort : -1)) // 读取出文件中的default模块
+      // .sort((a, b) => (a.sort ? a.sort - b.sort : -1)) // 读取出文件中的default模块
   })
 
 const menus = {
   mywork: {
     name: '我的工作',
-    icon: 'icon-hanshu'
+    icon: 'icon-wodegongzuo'
   }
 }
 const menuArr = Object.keys(menus).map((menu) => {
