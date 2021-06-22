@@ -1,27 +1,27 @@
 export default [{
-  path: '/mywork/pure-mywork',
+  path: '/mywork/people',
   name: 'mywork',
   title: '拉人入伙',
   icon: '',
-  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/pure-mywork.vue')
+  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/people.vue')
 }, {
-  path: '/mywork/deep-clone',
+  path: '/mywork/target',
   name: 'mywork',
   title: '制定目标',
   icon: '',
-  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/deep-clone.vue')
+  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/target.vue')
 }, {
-  path: '/mywork/self-map',
+  path: '/mywork/do',
   name: 'mywork',
   title: '执行下去',
   icon: '',
-  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/self-map.vue')
+  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/do.vue')
 }, {
-  path: '/mywork/self-new',
+  path: '/mywork/monitor',
   name: 'mywork',
-  title: '监督执行',
+  title: '保障执行',
   icon: '',
-  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/self-new.vue')
+  component: () => import(/* webpackChunkName: "mywork" */ '@/views/mywork/monitor.vue')
 }]
 
 // self-jsonstringify self-new  create-js  closure  instanceof  promise-chunk  for-in-break  mywork-currying  self-setinterval
