@@ -30,8 +30,8 @@
         active-text-color="#1e80ff"
       >
         <el-submenu
-          :index="index"
-          :key="index"
+          :index="String(index)"
+          :key="String(index)"
           v-for="(item, index) in menuList"
         >
           <template slot="title">
