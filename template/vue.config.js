@@ -37,6 +37,7 @@ module.exports = {
      * 删除懒加载模块的 prefetch preload，降低带宽压力(使用在移动端)
      */
     // config.plugins.delete("prefetch").delete("preload");
+    config.mode =  process.env.VUE_APP_NODE_ENV;
     config.resolve.alias
       .set('@', path.join(__dirname, 'src/'))
       .set('util', path.join(__dirname, 'src/util'))
