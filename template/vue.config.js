@@ -1,6 +1,8 @@
 const path = require('path')
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const { defineConfig } = require('@vue/cli-service')
+
+// const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const useAnalyzer = process.env.use_analyzer
 const {
@@ -18,7 +20,6 @@ const cdn = [
   'https://unpkg.com/axios@0.18.0/dist/axios.min.js',
   'https://unpkg.com/js-cookie@2.2.0/src/js.cookie.js'
 ]
-
 const externals = {
   vue: 'Vue',
   'vue-router': 'VueRouter',
@@ -28,16 +29,17 @@ const externals = {
   'js-cookie': 'Cookies'
 }
 const plugins = []
-plugins.push(new HardSourceWebpackPlugin())
+// plugins.push(new HardSourceWebpackPlugin())
 
-module.exports = {
+module.exports = defineConfig({
+  transpileDependencies: true,
   lintOnSave: false,
   chainWebpack: config => {
     /**
      * 删除懒加载模块的 prefetch preload，降低带宽压力(使用在移动端)
      */
     // config.plugins.delete("prefetch").delete("preload");
-    config.mode =  process.env.VUE_APP_NODE_ENV;
+    config.mode = process.env.VUE_APP_NODE_ENV
     config.resolve.alias
       .set('@', path.join(__dirname, 'src/'))
       .set('util', path.join(__dirname, 'src/util'))
@@ -76,16 +78,16 @@ module.exports = {
         return args
       })
       /** 注意：gzip需要nginx进行配合 */
-      config
-        .plugin('compression')
-        .use(CompressionWebpackPlugin)
-        .tap(() => [
-          {
-            test: /\.js$|\.html$|\.css/, // 匹配文件名
-            threshold: 10240, // 超过10k进行压缩
-            deleteOriginalAssets: false // 是否删除源文件
-          }
-        ])
+      // config
+      //   .plugin('compression')
+      //   .use(CompressionWebpackPlugin)
+      //   .tap(() => [
+      //     {
+      //       test: /\.js$|\.html$|\.css/, // 匹配文件名
+      //       threshold: 10240, // 超过10k进行压缩
+      //       deleteOriginalAssets: false // 是否删除源文件
+      //     }
+      //   ])
 
       config.optimization.minimizer('terser').tap(args => {
         // 生产环境推荐关闭 sourcemap 防止源码泄漏
@@ -102,22 +104,17 @@ module.exports = {
     plugins
   },
 
-  css: {
-    loaderOptions: {
-      // 给 sass-loader 传递选项
-      sass: {
-        // @/ 是 src/ 的别名
-        // 所以这里假设你有 `src/variables.scss` 这个文件
-        prependData: `
-        @import '~@/style/mixin.scss';
-        @import "~@/style/variables.scss";
-        `
-      }
-    }
-  },
-  devServer: {
-    host: '0.0.0.0',
-    overlay: true,
-    port: 8080
-  }
-}
+  // css: {
+  //   loaderOptions: {
+  //     // 给 sass-loader 传递选项
+  //     sass: {
+  //       // @/ 是 src/ 的别名
+  //       // 所以这里假设你有 `src/variables.scss` 这个文件
+  //       prependData: `
+  //       @import '~@/style/mixin.scss';
+  //       @import "~@/style/variables.scss";
+  //       `
+  //     }
+  //   }
+  // }
+})
